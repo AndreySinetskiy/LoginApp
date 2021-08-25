@@ -14,10 +14,11 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let welcomeVC = segue.destination as? WelcomeViewController else {return}
+        checkData(for: userNameTF.text , and: passwordTF.text )
         welcomeVC.textLabel = userNameTF.text
     }
     
