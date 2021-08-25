@@ -11,6 +11,7 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var userNameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -18,18 +19,10 @@ class LoginViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let welcomeVC = segue.destination as? WelcomeViewController else {return}
         welcomeVC.textLabel = userNameTF.text
-        
-        if userNameTF.text != "Andrey" && passwordTF.text != "Swift2021" {
-            showAlert(with: "Invalid Login or password", and: "Please, enter correct login and password")
-
-        } else {
-            return
-        }
-        
-       
     }
+    
     @IBAction func pressedLogInButton() {
-        
+        checkData(for: userNameTF.text , and: passwordTF.text )
         userNameTF.text = ""
         passwordTF.text = ""
     }
@@ -44,6 +37,15 @@ class LoginViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     super .touchesBegan(touches, with: event)
+    }
+    
+    private func checkData (for userName: String?, and password: String? ) {
+        if userName  != "Andrey" && password != "Swift2021" {
+            showAlert(with: "Invalid Login or password", and: "Please, enter correct login and password")
+        } else {
+            return
+        }
+        
     }
 }
 // MARK: -
