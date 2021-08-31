@@ -11,18 +11,13 @@ class WelcomeViewController: UIViewController {
 
     @IBOutlet weak var welcomeLabel: UILabel!
     
-    var textLabel: String!
+    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if textLabel != nil {
-            welcomeLabel.text = "Welcome, \(String(textLabel))!"
-        }
+        welcomeLabel.text = "Welcome \(user.person.fullname)"
     }
     
-    @IBAction func LogOutPressedButton() {
-        dismiss(animated: true)
-    }
     
     
 
